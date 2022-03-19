@@ -1,0 +1,171 @@
+*
+   margin: 0
+   padding: 0
+   box-sizing: border-box
+   border: none
+   outline: none
+   list-style: none
+   color: #fff
+   font-family: 'Open Sans', sans-serif
+   font-weight: 600
+
+.wrapper
+   display: flex
+   align-items: center
+   justify-content: center
+   width: 100vw
+   min-height: 100vh
+   gap: 70px
+   padding: 0 50px
+
+.storage
+   min-width: 300px
+   width: 360px
+   height: 500px
+   background-color: #e6e6e6
+   ul
+      font-size: 2.5rem
+      height: 100%
+      overflow-y: scroll
+      overflow-x: hidden
+      li
+         color: #818181
+         padding-left: 10px
+         word-break: break-all
+         white-space: nowrap
+         &:nth-child(even)
+            background-color: #dedede
+            
+         &:hover
+            color: #fff
+            white-space: break-spaces
+            background-color: #51b8e3
+
+      &::-webkit-scrollbar
+         width: 25px
+         
+      &::-webkit-scrollbar-track
+         -webkit-border-radius: 0px
+         border-radius: 0px
+         background-color: hsl(0deg 0% 80%)
+
+      &::-webkit-scrollbar-thumb
+         background-color: #e46041
+
+.calc
+   display: flex
+   flex-wrap: wrap
+   gap: 4px
+   max-width: 500px
+   padding: 4px
+   background-color: #565656
+   input
+      font-size: 4rem
+      width: 100%
+      background-color: #5199e3
+      padding: 0 20px
+      text-align: right
+      letter-spacing: 0.2rem
+      height: 125px
+   button
+      font-size: 2.5rem
+      line-height: 0
+      width: calc((100% - 4px * 4 )/5)
+      aspect-ratio: 1
+      background-color: #999
+      &:hover
+         background-color: hsl(0, 0%, 55%)
+      &._blue
+         background-color: #51b8e3
+         &:hover
+            background-color: hsl(198, 72%, 55%)
+      &._red
+         background-color: #e46041
+         &:hover
+            background-color: #d75839
+   
+@media (min-height: calc(500px*1.05 + 8px))
+   @media (min-width: 1440px)
+      .calc
+         margin-right: calc(350px + 70px)
+
+   @media (max-width: 1024px)
+      .wrapper
+         gap: 50px
+
+   @media (max-width: 880px)
+      .wrapper
+         flex-direction: column-reverse
+         padding: 50px 0
+      .storage
+         max-width: 500px
+         width: 100%
+
+   @media (max-width: 425px)
+      .storage
+         max-width: 320px
+         min-width: auto
+      .calc
+         max-width: 320px
+         button
+            width: calc((100% - 4px * 3 )/4)
+            &:nth-child(1) // input
+               order: 1
+            &:nth-child(2) // C
+               order: 2
+            &:nth-child(3) // 7
+               order: 6
+            &:nth-child(4) // 8
+               order: 7
+            &:nth-child(5) // 9
+               order: 8
+            &:nth-child(6) // X
+               order: 9
+            &:nth-child(7) // ^
+               order: 3
+            &:nth-child(8) // 4
+               order: 10
+            &:nth-child(9) // 5
+               order: 11
+            &:nth-child(10) // 6
+               order: 12
+            &:nth-child(11) // /
+               order: 13
+            &:nth-child(12) // sqrt
+               order: 4
+            &:nth-child(13) // 1
+               order: 14
+            &:nth-child(14) // 2
+               order: 15
+            &:nth-child(15) // 3
+               order: 16
+            &:nth-child(16) // -
+               order: 17
+            &:nth-child(17) // %
+               order: 5
+            &:nth-child(18) // 0
+               order: 18
+            &:nth-child(19) // .
+               order: 19
+            &:nth-child(20) // =
+               order: 20
+            &:nth-child(21) // +
+               order: 21
+         
+@media (max-height: calc(500px*1.05 + 8px))
+   .wrapper
+      height: 100vh
+      padding: 0
+      gap: 0px
+   .storage
+      width: calc(100vw - (18vh * 5 + 4px))
+      min-width: auto
+      height: 100%
+   .calc
+      max-width: calc(18vh * 5 + 4px)
+      input
+         height: calc(28vh - 8px)
+      button
+         width: auto
+         height: calc(18vh - 4px)
+         aspect-ratio: 1
