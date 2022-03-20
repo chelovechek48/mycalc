@@ -4,6 +4,7 @@ const calcBtns = document.querySelectorAll(".calc button");
 // вызов функции по клику на кнопку
 for (let index = 0; index < calcBtns.length; index ++) {
    calcBtns[index].addEventListener("click", () => {addSymbol(calcBtns[index].innerHTML)}); // добавление на экран нового символа
+   calcBtns[index].addEventListener("focus", () => {showSimbol()}); // показывать последний символ при добавлении нового
 }
 
 var lastSymbol = ''
@@ -170,8 +171,9 @@ function addSymbol(symbol) {
          dotLock = false;
          break
    }
-   
-   // показывать последний символ при добавлении нового
+}
+
+function showSimbol() {
    calcScreen.focus();
    calcScreen.selectionStart = calcScreen.value.length;
 }
